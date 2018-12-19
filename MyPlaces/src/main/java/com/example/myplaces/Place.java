@@ -10,9 +10,10 @@ public class Place {
     private String comment;
     private long date;
     private float rating;
+    private TypePlace type;
 
-    public Place(String name, String address, double longitude, double latitude, String phone,
-                 String url, String comment, int rating) {
+    public Place(String name, String address, double longitude, double latitude, TypePlace type,
+                 String phone, String url, String comment, int rating) {
         date = System.currentTimeMillis(); // Unix time
         position = new GeoCoord(longitude, latitude);
         this.name = name;
@@ -21,6 +22,7 @@ public class Place {
         this.url = url;
         this.comment = comment;
         this.rating = rating;
+        this.type = type;
     }
 
     public String getName() {
@@ -95,6 +97,14 @@ public class Place {
         this.rating = rating;
     }
 
+    public TypePlace getType() {
+        return type;
+    }
+
+    public void setType(TypePlace type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
         return "Place{" +
@@ -102,11 +112,12 @@ public class Place {
                 ", address='" + address + '\'' +
                 ", position=" + position +
                 ", photo='" + photo + '\'' +
-                ", phone=" + phone +
+                ", phone='" + phone + '\'' +
                 ", url='" + url + '\'' +
                 ", comment='" + comment + '\'' +
                 ", date=" + date +
                 ", rating=" + rating +
+                ", type=" + type +
                 '}';
     }
 }

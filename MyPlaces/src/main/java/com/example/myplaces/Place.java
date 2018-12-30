@@ -25,6 +25,12 @@ public class Place {
         this.type = type;
     }
 
+    public Place() {
+        date = System.currentTimeMillis();
+        position = new GeoCoord(0, 0);
+        type = TypePlace.OTHERS;
+    }
+
     public String getName() {
         return name;
     }
